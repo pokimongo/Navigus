@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='example.wink.css') }}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='my-login.css') }}">
+        <script>if(Modernizr.input.placeholder)document.getElementsByTagName('html')[0].className+=' inputplaceholder';</script>
+        <script> 
+          
+            // Function to check Whether both passwords 
+            // is same or not. 
+            function checkPassword(form) { 
+                password1 = form.psw1.value; 
+                password2 = form.psw2.value;          
+                if (password1 == 'psw1') 
+                   alert ("Please enter Password"); 
+                                
+                else if (password2 == 'psw2') 
+                    alert ("Please enter confirm password"); 
+                                          
+                else if (password1 != password2) { 
+                    alert ("\nPassword did not match: Please try again...") 
+                    return false; 
+                } 
+                  
+                else{ 
+                    alert(" Welcome to MarketingAutomation!") 
+                    return true; 
+                } 
+            } 
+        </script>
+       
+          
+</head>
+<body class="my-login-page">
+<section class="h-100">
+<div >
+<!--responsible for the center allignment-->
+<div class="row justify-content-md-center h-100">
+<div class="card-wrapper">
+					
+<div class="card fat">
+<div class="card-body">
+<center><h4 class="card-title">Sign-Up</h4></center>
+
+ <form  method="POST" action="/register" onSubmit = "return checkPassword(this)" class="my-login-validation" action="marketing_signup">
+<form method="POST" onSubmit = "validateEmail()" class="my-login-validation" action="marketing_email" >
+<div class="form-group">
+<input id="name" type="text" class="form-control" placeholder="enter username" name="uname1" required autofocus>
+<div class="invalid-feedback">
+What's your name?
+</div>
+</div>
+
+<div class="form-group">
+<!--<label for="email">E-Mail Address</label>-->
+<input id="name1" type="text" class="form-control" placeholder="enter your full name"name="fname1" required>
+<div class="invalid-feedback">
+Your name is invalid
+</div>
+</div>
+<div class="form-group">
+<input id="psw1" type="password" class="form-control" placeholder="enter password" name="psw1" required class="input" data-type="password">
+<!--<div class="invalid-feedback">
+Password is required
+</div>-->
+</div>
+<div class="form-group">
+<input id="psw2" type="password" class="form-control" placeholder="confirm password" name="psw2" required class="input" data-type="password">
+<!--<div class="invalid-feedback">
+Password is required
+</div>-->
+</div>
+
+
+<div class="form-group m-0">
+<button type="submit" class="btn btn-primary btn-block">
+Register
+</button>
+<!--<input type="button" id ="btnSubmit" value="Submit" onclick="return checkValidate()" />-->
+</div>
+<div class="mt-4 text-center">
+Already have an account? <a href="/">Login</a>
+</div>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!---script for password show button use if required-->
+	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="js/my-login.js"></script>-->
+
+
+
+
+<!-- including the jQuery dependency -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- including the plugin -->
+<script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'hideShowPassword.min.js') }}" ></script>
+<!--<script src="hideShowPassword.min.js"></script>-->
+<script>
+
+$('#psw1').hidePassword(true);
+</script>
+<script>
+
+
+$('#psw2').hidePassword(true);
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Images test</title>
+</head>
+
+<style>
+.container {
+    position: relative;
+    width: 4%;
+    float: left;
+    left:10px;
+    
+}
+
+.container1 {
+    position: relative;
+    width: 100%;
+    left: 70px;
+   
+    
+}
+
+
+
+.image {
+   
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  
+}
+
+.middle {
+ position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color:#e6e6ff;
+  width: 100%;
+  height: auto;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.container:hover .middle {
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+.container:hover .image {
+    opacity: 0.3;
+}
+
+.container:hover .middle {
+    opacity: 1;
+}
+
+.text {
+   
+  color: black;
+  font-size: 10px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+    
+}
+.circle {
+ 
+  width: 80px;
+  height: 80px;
+  border-radius: 90%;
+  font-size: 30px;
+  color: #fff;
+  line-height: auto;
+  text-align: center;
+  background: #595959
+}
+
+</style>
+
+<body>
+
+
+{% for i in range(1,5) %}
+<div class="container">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTKMvO4ydq3DuBwMUTliFGqGm641axT0vrKaQ&usqp=CAU" alt="Image" class="image">
+  <div class="middle">
+    <div class="text">{{ data1[i] }}<br></br>{{ data2[i] }}</div>
+   </div>
+</div>
+{% endfor %}
+
+{% if(plus>0) %}
+<div class="container">
+<div class="circle">+{{plus}}</div>
+</div>
+{% endif %}
+
+<div class="container1">
+<form>
+<select name = "dropdown" style="width: 144px; min-height:40px; max-width: 144px; min-width: 144px;">
+{% for i in range(1,count) %}
+<option value = {{ data1[i] }} selected>{{ data1[i] }}</option>
+{% endfor %}
+</select>
+</form>
+</div>
+
+
+
+</body>
+</html>
